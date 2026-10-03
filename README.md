@@ -4,9 +4,9 @@ Aplicación local para organizar actividades, entregas y evaluación por resulta
 
 ## Descargar
 
-Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). Si todavía no aparece una release, la compilación inicial sigue en preparación.
+Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La primera versión de prueba es [0.1.0](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.0).
 
-- **Mac con Apple Silicon:** descarga `Cuaderno AULES.app.tar.gz`, descomprímelo y mueve la app a Aplicaciones.
+- **Mac con Apple Silicon:** descarga `Cuaderno-AULES.app.tar.gz`, descomprímelo y mueve la app a Aplicaciones.
 - **Windows de 64 bits:** descarga el archivo terminado en `-setup.exe` y ejecuta el instalador.
 - Mac con procesador Intel no está incluido en esta primera versión.
 
