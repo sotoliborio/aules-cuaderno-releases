@@ -4,9 +4,9 @@ Aplicación local para organizar actividades, entregas y evaluación por resulta
 
 ## Descargar
 
-Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La versión de prueba actual es **[0.1.8](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.8)**. El enlace de Mac apunta siempre a la última versión publicada; Windows enlaza al instalador de esta versión.
+La versión de prueba actual es **[0.1.8](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.8)**. Consulta también todas las [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases).
 
-- **Mac con Apple Silicon:** [descarga la app](https://github.com/sotoliborio/aules-cuaderno-releases/releases/latest/download/Cuaderno-AULES.app.tar.gz), descomprímelo y mueve la app a Aplicaciones.
+- **Mac con Apple Silicon:** [descarga el paquete](https://github.com/sotoliborio/aules-cuaderno-releases/releases/latest/download/Cuaderno-AULES.app.tar.gz), descomprímelo y mueve la app a Aplicaciones.
 - **Windows de 64 bits:** [descarga el instalador 0.1.8](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.1.8/Cuaderno-AULES_0.1.8_x64-setup.exe) y ejecuta el instalador.
 - Mac con procesador Intel no está incluido en los paquetes actuales.
 
@@ -14,10 +14,10 @@ Esta es una versión de prueba. Los paquetes incorporan firma para las actualiza
 
 ## Novedades de 0.1.8
 
-- Notas importadas de AULES vinculadas a los CE explícitos del enunciado y reflejadas en las notas por RA, respetando la opción de guardar solo la nota global.
-- Unidades numeradas y selección de los instrumentos que se utilizan, con porcentajes y validación inmediata del total del 100 %.
-- Convocatoria «Evaluación Continua».
-- Acceso recordado opcional mediante token en el Llavero de macOS o el Administrador de credenciales de Windows, sin guardar la contraseña.
+- «Evaluación Continua» sustituye a «Seguimiento» en el selector de convocatoria.
+- Las notas confirmadas de AULES alimentan los CE explícitos como notas globales heredadas, conservando las opciones de solo nota global.
+- Importación por actividad si una consulta de notas en lote falla.
+- Unidades numeradas y selección progresiva de instrumentos, porcentajes visibles y validación inmediata del total del 100 %.
 
 ## Tus datos y cuentas
 
