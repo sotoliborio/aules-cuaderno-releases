@@ -4,7 +4,7 @@ Aplicación local para organizar actividades, entregas y evaluación por resulta
 
 ## Descargar
 
-Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La primera versión de prueba es [0.1.1](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.1).
+Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La versión de prueba actual es [0.1.2](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.2).
 
 - **Mac con Apple Silicon:** descarga `Cuaderno-AULES.app.tar.gz`, descomprímelo y mueve la app a Aplicaciones.
 - **Windows de 64 bits:** descarga el archivo terminado en `-setup.exe` y ejecuta el instalador.
@@ -26,4 +26,4 @@ El botón de versión de la app permite buscar una actualización, consultar sus
 
 La actualización entre versiones todavía debe validarse con una segunda versión. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
 
-La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza 0.1.1. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
+La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza 0.1.2 o una versión posterior. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
