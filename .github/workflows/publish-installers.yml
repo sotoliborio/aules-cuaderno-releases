@@ -33,7 +33,7 @@ jobs:
           MANIFEST: ${{ inputs.manifest }}
         run: |
           python3 - <<'PYTHON'
-          import os,urllib.request,zipfile,io,hashlib,json
+          import os,urllib.request,urllib.parse,zipfile,io,hashlib,json,re
           from pathlib import Path
           folder=Path('packages');folder.mkdir()
           for system in ('MAC','WINDOWS'):
@@ -49,7 +49,12 @@ jobs:
                       assert not (folder/name).exists()
                       (folder/name).write_bytes(archive.read(entry))
           assert len(list(folder.iterdir()))==4
-          manifest=json.loads(os.environ['MANIFEST']);assert manifest['version']=='0.1.0'
+          manifest=json.loads(os.environ['MANIFEST']);version=manifest['version'];assert re.fullmatch(r'\d+\.\d+\.\d+',version)
+          manifest['platforms']={}
+          for target,pattern in [('darwin-aarch64','*.app.tar.gz'),('windows-x86_64','*_x64-setup.exe')]:
+              files=list(folder.glob(pattern));assert len(files)==1;package=files[0]
+              manifest['platforms'][target]={'url':'https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/releases/download/v'+version+'/'+package.name,'signature':(folder/(package.name+'.sig')).read_text().strip()}
+          with open(os.environ['GITHUB_ENV'],'a') as env:env.write('VERSION='+version+'\n')
           for platform in manifest['platforms'].values():
               name=urllib.parse.unquote(platform['url'].rsplit('/',1)[1]);assert (folder/name).is_file()
               assert platform['signature']==(folder/(name+'.sig')).read_text().strip()
@@ -60,5 +65,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload v0.1.0 packages/* --clobber --repo "$GITHUB_REPOSITORY"
-          gh release edit v0.1.0 --draft=false --latest --repo "$GITHUB_REPOSITORY"
+          gh release upload "v$VERSION" packages/* --clobber --repo "$GITHUB_REPOSITORY"
+          gh release edit "v$VERSION" --draft=false --latest --repo "$GITHUB_REPOSITORY"
