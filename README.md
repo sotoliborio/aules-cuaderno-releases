@@ -4,13 +4,20 @@ Aplicación local para organizar actividades, entregas y evaluación por resulta
 
 ## Descargar
 
-Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La versión de prueba actual es [0.1.2](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.2).
+Los paquetes verificados se publican en [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases). La versión de prueba actual es **[0.1.8](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.8)**. El enlace de Mac apunta siempre a la última versión publicada; Windows enlaza al instalador de esta versión.
 
-- **Mac con Apple Silicon:** descarga `Cuaderno-AULES.app.tar.gz`, descomprímelo y mueve la app a Aplicaciones.
-- **Windows de 64 bits:** descarga el archivo terminado en `-setup.exe` y ejecuta el instalador.
-- Mac con procesador Intel no está incluido en esta primera versión.
+- **Mac con Apple Silicon:** [descarga la app](https://github.com/sotoliborio/aules-cuaderno-releases/releases/latest/download/Cuaderno-AULES.app.tar.gz), descomprímelo y mueve la app a Aplicaciones.
+- **Windows de 64 bits:** [descarga el instalador 0.1.8](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.1.8/Cuaderno-AULES_0.1.8_x64-setup.exe) y ejecuta el instalador.
+- Mac con procesador Intel no está incluido en los paquetes actuales.
 
-Esta es una primera versión de prueba. Los paquetes incorporan firma para las actualizaciones de Tauri, pero no tienen aún notarización de Apple ni certificado de firma de Windows; el sistema puede mostrar avisos. Las sumas SHA256 acompañan a cada versión.
+Esta es una versión de prueba. Los paquetes incorporan firma para las actualizaciones de Tauri, pero no tienen aún notarización de Apple ni certificado de firma de Windows; el sistema puede mostrar avisos. Las sumas SHA256 acompañan a cada versión.
+
+## Novedades de 0.1.8
+
+- Notas importadas de AULES vinculadas a los CE explícitos del enunciado y reflejadas en las notas por RA, respetando la opción de guardar solo la nota global.
+- Unidades numeradas y selección de los instrumentos que se utilizan, con porcentajes y validación inmediata del total del 100 %.
+- Convocatoria «Evaluación Continua».
+- Acceso recordado opcional mediante token en el Llavero de macOS o el Administrador de credenciales de Windows, sin guardar la contraseña.
 
 ## Tus datos y cuentas
 
@@ -24,6 +31,6 @@ Las propuestas de IA son borradores que deben revisarse. Publicar notas en AULES
 
 El botón de versión de la app permite buscar una actualización, consultar sus cambios e instalarla. Las actualizaciones se verifican mediante firma y se prepara una copia local del registro antes de instalar. Tus datos no se publican en este repositorio.
 
-La actualización entre versiones todavía debe validarse con una segunda versión. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
+El canal publica la versión 0.1.8 y se han verificado las firmas y los SHA256 de los paquetes. La instalación mediante el actualizador entre versiones todavía está pendiente de comprobación completa. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
 
-La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza 0.1.2 o una versión posterior. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
+La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza la versión actual, 0.1.8. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
