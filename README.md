@@ -4,19 +4,22 @@ Aplicación local para organizar actividades, entregas y evaluación por resulta
 
 ## Descargar
 
-La versión de prueba actual es **[0.1.15](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.15)**. Consulta también todas las [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases).
+La versión de prueba actual es **[0.1.22](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.22)**. Consulta también todas las [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases).
 
 - **Mac con Apple Silicon:** [descarga el paquete](https://github.com/sotoliborio/aules-cuaderno-releases/releases/latest/download/Cuaderno-AULES.app.tar.gz), descomprímelo y mueve la app a Aplicaciones.
-- **Windows de 64 bits:** [descarga el instalador 0.1.15](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.1.15/Cuaderno-AULES_0.1.15_x64-setup.exe) y ejecuta el instalador.
+- **Windows de 64 bits:** [descarga el instalador 0.1.22](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.1.22/Cuaderno-AULES_0.1.22_x64-setup.exe) y ejecuta el instalador.
 - Mac con procesador Intel no está incluido en los paquetes actuales.
 
 Esta es una versión de prueba. Los paquetes incorporan firma para las actualizaciones de Tauri, pero no tienen aún notarización de Apple ni certificado de firma de Windows; el sistema puede mostrar avisos. Las sumas SHA256 acompañan a cada versión.
 
-## Novedades de 0.1.15
+## Novedades de 0.1.22
 
-- Vinculación de notas confirmadas de cuestionarios a CE sin crear ni modificar rúbricas o notas aprobadas.
-- Avisos en Notas por RA sobre notas pendientes de importar, borradores, CE sin asignar, solo nota global y escalas; las incidencias se incluyen en el CSV.
-- Botones «Actualizar notas desde AULES» y «Actualizar cuestionario completo», con ayuda y errores dentro de la ventana.
+- Ventanas con foco inicial útil, navegación por teclado y nombres accesibles.
+- RA y CE compactos: descripción con elipsis, texto completo al abrir y selección completa/parcial independiente.
+- Contraste de estados y casillas mejorados; botones e iconos coherentes y cierres duplicados eliminados.
+- Guardado y aportación de notas a RA más claros; mensajes de porcentajes asociados a sus campos y acciones móviles reorganizadas.
+- Estilos de RA consolidados con tokens compartidos, sin scroll horizontal con textos largos.
+- Auditoría de interfaz documentada, pruebas responsive y skill reutilizable para futuras revisiones.
 
 ## Tus datos y cuentas
 
@@ -30,6 +33,6 @@ Las propuestas de IA son borradores que deben revisarse. Publicar notas en AULES
 
 El botón de versión de la app permite buscar una actualización, consultar sus cambios e instalarla. Las actualizaciones se verifican mediante firma y se prepara una copia local del registro antes de instalar. Tus datos no se publican en este repositorio.
 
-El canal publica la versión 0.1.15 y se han verificado las firmas y los SHA256 de los paquetes. La instalación mediante el actualizador entre versiones todavía está pendiente de comprobación completa. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
+El canal publica la versión 0.1.22 y se han verificado las firmas y los SHA256 de los paquetes. La instalación mediante el actualizador entre versiones todavía está pendiente de comprobación completa. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
 
-La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza la versión actual, 0.1.15. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
+La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza la versión actual, 0.1.22. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
