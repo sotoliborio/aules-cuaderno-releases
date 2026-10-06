@@ -1,34 +1,46 @@
-# Cuaderno AULES · Descargas
+# Cuaderno AULES · Web local
 
-Aplicación local para organizar actividades, entregas y evaluación por resultados de aprendizaje y criterios de evaluación. Este repositorio contiene únicamente los instaladores y manifiestos de actualización. El código se mantiene en un repositorio privado.
+La versión actual es **0.2.1**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Descargar
+## Descargar e iniciar
 
-La versión de prueba actual es **[0.1.41](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.1.41)**. Consulta también todas las [Releases](https://github.com/sotoliborio/aules-cuaderno-releases/releases).
+[Descargar paquete web 0.2.1](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.1/Cuaderno-AULES-web-0.2.1.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.1)
 
-- **Mac con Apple Silicon:** [descarga el paquete](https://github.com/sotoliborio/aules-cuaderno-releases/releases/latest/download/Cuaderno-AULES.app.tar.gz), descomprímelo y mueve la app a Aplicaciones.
-- **Windows de 64 bits:** [descarga el instalador 0.1.41](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.1.41/Cuaderno-AULES_0.1.41_x64-setup.exe) y ejecuta el instalador.
-- Mac con procesador Intel no está incluido en los paquetes actuales.
+1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
+2. Descomprime el paquete web en una carpeta estable.
+3. Mac: abre `iniciar.command`. Windows: abre `iniciar.bat` (PowerShell debe permitir el script local conforme a la política de tu equipo). Linux: ejecuta `sh iniciar.sh`.
+4. El primer arranque descarga y comprueba la imagen para tu arquitectura. Puede tardar varios minutos. Abre **http://localhost:3000** cuando se confirme el arranque.
 
-Esta es una versión de prueba. Los paquetes incorporan firma para las actualizaciones de Tauri, pero no tienen aún notarización de Apple ni certificado de firma de Windows; el sistema puede mostrar avisos. Las sumas SHA256 acompañan a cada versión.
+Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Imágenes Linux para AMD64 (Intel/AMD) y ARM64 (Apple Silicon/Windows ARM). La compilación y el arranque se verifican en Linux para ambas arquitecturas; el lanzador de Windows requiere validación en un equipo Windows real.
 
-## Novedades de 0.1.41
+## Tus cuentas y tus datos
 
-- Fondo uniforme del menú lateral en toda su altura.
-- El selector de curso utiliza la misma flecha que los filtros de actividades.
+- La instalación comienza vacía. No incluye alumnado, cursos, entregas, programaciones, contraseñas, tokens ni sesiones del autor.
+- Elige sabores, conecta tu propia cuenta de AULES e importa los cursos con su programación. La app solicita el token directamente a AULES mediante HTTPS.
+- Recordar sesión guarda tokens en el volumen local; no guarda tu contraseña en un archivo. Las credenciales y tokens de AULES no se envían a la IA.
+- Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex** desde Ajustes → Sistema. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
+- Las funciones IA envían a OpenAI las evidencias necesarias; las propuestas son borradores que debes revisar. Publicar calificaciones es una acción explícita y depende de los permisos de AULES.
 
-## Tus datos y cuentas
+## Actualizar, detener y conservar datos
 
-La instalación empieza vacía. No incluye cursos, alumnado, notas, documentos de clase, contraseñas, tokens ni sesiones del autor. Los datos de cada profesor se guardan en su propio equipo. AULES se conecta con la cuenta del profesor y sus permisos reales.
+Descarga y descomprime el paquete nuevo **en la misma carpeta**, conserva `.env` si lo tienes y ejecuta `sh actualizar.sh` (Windows: abre actualizar.bat). El lanzador crea una copia SQLite antes de actualizar y se detiene si hay trabajos IA activos.
 
-Las correcciones con IA requieren instalar [Codex CLI](https://developers.openai.com/codex/cli/) y completar `codex login` con tu propia cuenta. La app no proporciona cuota de IA: se aplican los límites de tu cuenta. No se comparte la sesión del autor. El ordenador debe permanecer encendido durante las correcciones.
+Windows, antes de actualizar: `docker compose exec -T cuaderno python /opt/cuaderno/outputs/aules-evaluacion/web_maintenance.py backup`.
 
-Las propuestas de IA son borradores que deben revisarse. Publicar notas en AULES es una acción explícita del profesor y depende de los permisos que permita su instancia.
+Los datos se guardan en el volumen Docker `cuaderno-aules_cuaderno-aules-data`, fuera del paquete. Mantén una copia externa. `docker compose down` conserva datos; **no utilices `docker compose down -v`**, que los elimina. Cierra Docker solo cuando no haya correcciones en curso.
 
-## Actualizaciones
+El registro de las antiguas versiones de escritorio no se traslada automáticamente. Conserva sus datos y solicita ayuda para migrarlos antes de borrarlos. La nueva distribución no sobrescribe ese registro.
 
-El botón de versión de la app permite buscar una actualización, consultar sus cambios e instalarla. Las actualizaciones se verifican mediante firma y se prepara una copia local del registro antes de instalar. Tus datos no se publican en este repositorio.
+## Móvil
 
-El canal publica la versión 0.1.41 y se han verificado las firmas y los SHA256 de los paquetes. La instalación mediante el actualizador entre versiones todavía está pendiente de comprobación completa. Conserva una copia de tus datos antes de usar esta versión de prueba como único registro de evaluación.
+Puedes acceder mediante Tailscale Serve privado con HTTPS. El equipo y Docker deben estar encendidos. No expongas el puerto en Internet. Cada instalación está diseñada para un docente; no es un servidor compartido para varias cuentas.
 
-La versión 0.1.1 corrige la firma del paquete Mac. La 0.1.0 tenía la firma del ejecutable sin sellar los recursos y podía aparecer como dañada. Utiliza la versión actual, 0.1.41. Si macOS pide autorización por falta de notarización, consulta Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente. La firma ad hoc no sustituye la notarización de Apple.
+## Cambios de esta versión
+
+- Nueva distribución web local con Docker para ambas arquitecturas; escritorio y Render dejan de formar parte de la instalación.
+- Navegación unificada, sin barra inferior duplicada; fichas y formularios más legibles en móvil.
+- Importación de rúbricas CSV de AULES, HTML o texto con vista previa e historial.
+- Opciones de corrección separadas de calificación; avisos sencillos y detalles técnicos desplegables.
+- Conexión a Codex accesible desde la preparación de rúbricas.
+
+El repositorio contiene lanzadores y documentación pública; el desarrollo se mantiene en el repositorio privado. Las imágenes distribuidas contienen el código de ejecución Python y no datos docentes. SHA256SUMS permite comprobar las descargas; no sustituye una firma independiente.
