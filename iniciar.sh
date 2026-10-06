@@ -2,10 +2,10 @@
 set -eu
 cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 docker info >/dev/null 2>&1 || { echo 'Instala y abre Docker Desktop antes de continuar.'; exit 1; }
-if ! docker image inspect cuaderno-aules:0.2.1 >/dev/null 2>&1; then
+if ! docker image inspect cuaderno-aules:0.2.2 >/dev/null 2>&1; then
  case "$(uname -m)" in arm64|aarch64) arch=arm64;; x86_64|amd64) arch=amd64;; *) echo 'Arquitectura no compatible';exit 1;; esac
- asset="cuaderno-aules-web-0.2.1-$arch.tar.gz"
- base=https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.1
+ asset="cuaderno-aules-web-0.2.2-$arch.tar.gz"
+ base=https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.2
  cache=$(mktemp -d)
  trap 'rm -rf "$cache"' EXIT
  curl --fail --location --proto '=https' "$base/$asset" -o "$cache/$asset"
