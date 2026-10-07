@@ -2,11 +2,11 @@ $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
 docker info *> $null
 if ($LASTEXITCODE -ne 0) { throw 'Instala y abre Docker Desktop antes de continuar.' }
-docker image inspect cuaderno-aules:0.2.2 *> $null
+docker image inspect cuaderno-aules:0.2.3 *> $null
 if ($LASTEXITCODE -ne 0) {
  $arch = if ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq 'Arm64') { 'arm64' } else { 'amd64' }
- $asset = "cuaderno-aules-web-0.2.2-$arch.tar.gz"
- $base = 'https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.2'
+ $asset = "cuaderno-aules-web-0.2.3-$arch.tar.gz"
+ $base = 'https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.3'
  $cache = Join-Path ([System.IO.Path]::GetTempPath()) ([guid]::NewGuid().ToString())
  New-Item -ItemType Directory $cache | Out-Null
  try {

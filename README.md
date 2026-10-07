@@ -1,17 +1,20 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.2**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.3**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.2
+## Novedades de 0.2.3
 
-- Conexión Codex corregida: código seleccionable, botón Copiar y estado de conexión en Sistema.
-- Importación de rúbricas con vista previa, confirmación y feedback de guardado.
-- Asignación de CE por ítem con IA: considera el alcance declarado y la evidencia parcial; las propuestas incompletas conservan las asignaciones actuales.
-- Botones bloqueados con explicaciones accesibles y estilo común para errores.
+- Correcciones IA individuales, con comprobación de evidencias y revisión adicional de casos dudosos.
+- Verificación de citas compatible con saltos de línea y espacios extraídos de PDF.
+- Propuestas plegables por alumno, acciones separadas y control para desplegarlas todas.
+- Estado de vinculación de CE en la actividad y en su rúbrica, con acceso directo a revisarlo.
+- Se elimina la publicación directa de calificaciones: el cuaderno compara con AULES sin sobrescribir los resultados locales. Actualizar una actividad o el curso vuelve a comprobarlos.
+- Solo las calificaciones aprobadas y coincidentes con AULES cuentan en el cálculo por RA. Las discrepancias quedan señaladas. Las escalas y pruebas externas requieren todavía un mecanismo compatible de comprobación.
+- Reparado el empaquetado de los módulos de comparación.
 
 ## Descargar e iniciar
 
-[Descargar paquete web 0.2.2](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.2/Cuaderno-AULES-web-0.2.2.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.2)
+[Descargar paquete web 0.2.3](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.3/Cuaderno-AULES-web-0.2.3.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.3)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
@@ -27,7 +30,7 @@ Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Im�
 - Recordar sesión guarda tokens en el volumen local; no guarda tu contraseña en un archivo. Las credenciales y tokens de AULES no se envían a la IA.
 - Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex** desde Ajustes → Sistema. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
 - El acceso de Codex por código requiere habilitar «Inicio de sesión con código de dispositivo» en [Seguridad de ChatGPT](https://chatgpt.com/#settings/Security). Después pulsa Conectar Codex para obtener un código nuevo y autorízalo en el enlace mostrado. No compartas códigos ni sesiones.
-- Las funciones IA envían a OpenAI las evidencias necesarias; las propuestas son borradores que debes revisar. Publicar calificaciones es una acción explícita y depende de los permisos de AULES.
+- Las funciones IA envían a OpenAI las evidencias necesarias; las propuestas son borradores que debes revisar. Introduce las calificaciones en AULES y utiliza la comparación del cuaderno para comprobar que coinciden. La app no publica calificaciones.
 
 ## Actualizar, detener y conservar datos
 

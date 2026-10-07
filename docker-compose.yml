@@ -1,7 +1,7 @@
 name: cuaderno-aules
 services:
   cuaderno:
-    image: cuaderno-aules:0.2.2
+    image: cuaderno-aules:0.2.3
     ports:
       - "127.0.0.1:3000:3000"
     volumes:
