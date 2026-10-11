@@ -57,7 +57,7 @@ if ($installed -and $installed -ne $version) {
  docker exec $container python /opt/cuaderno/outputs/aules-evaluacion/web_maintenance.py backup
  if ($LASTEXITCODE -ne 0) { throw 'Actualización detenida. Espera a que terminen las tareas IA y vuelve a iniciar.' }
 }
-$settings = if (Test-Path .env) { @(Get-Content .env | Where-Object { $_ -notmatch '^CUADERNO_IMAGE=' }) } else { @() }
+$settings = @(if (Test-Path .env) { Get-Content .env | Where-Object { $_ -notmatch '^CUADERNO_IMAGE=' } })
 $settings += "CUADERNO_IMAGE=cuaderno-aules:$version"
 [System.IO.File]::WriteAllLines((Join-Path $PSScriptRoot '.env'),$settings,(New-Object System.Text.UTF8Encoding($false)))
 $env:CUADERNO_IMAGE="cuaderno-aules:$version"
