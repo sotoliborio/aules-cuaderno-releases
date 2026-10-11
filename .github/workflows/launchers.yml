@@ -5,31 +5,49 @@ permissions:
 jobs:
   windows:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        scenario: [new, upgrade, blocked, current, offline, stopped]
     steps:
       - uses: actions/checkout@v4
-      - name: Analizar y ejecutar flujo Windows con Docker simulado
+      - name: Verificar inicio y actualización con Docker simulado
         shell: pwsh
+        env:
+          SCENARIO: ${{ matrix.scenario }}
         run: |
           foreach ($file in @('iniciar.ps1','actualizar.ps1')) {
             $tokens=$null; $errors=$null
             [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD $file),[ref]$tokens,[ref]$errors) | Out-Null
             if ($errors.Count) { throw ($errors | Out-String) }
           }
-          $env:PATH="$PWD;$env:PATH"
-          '@echo off' + "`r`nexit /b 0" | Set-Content docker.cmd
+          'SETTING_PRESERVED=ok' | Set-Content .env
+          $global:backedUp=$false
+          function Invoke-RestMethod { if ($env:SCENARIO -eq 'offline') { throw 'Red no disponible' }; return @{tag_name='v0.2.5'} }
           function Start-Process { param($FilePath) if ($FilePath -ne 'http://localhost:3000') { throw 'URL incorrecta' } }
-          & ./iniciar.ps1
-      - name: Comprobar actualización bloqueada antes de reiniciar
-        shell: pwsh
-        run: |
-          $env:PATH="$PWD;$env:PATH"
-          '@echo off' + "`r`nexit /b 1" | Set-Content docker.cmd
-          $blocked=$false
-          try { & ./actualizar.ps1 } catch { $blocked=$true }
-          if (!$blocked) { throw 'No se detuvo la actualización ante mantenimiento fallido' }
-          $global:LASTEXITCODE=0
+          function docker {
+            $line=$args -join ' '; $global:LASTEXITCODE=0
+            switch ($line) {
+              'compose ps -a -q cuaderno' { if ($env:SCENARIO -ne 'new') { 'container-old' } }
+              'inspect --format {{.Config.Image}} container-old' { if ($env:SCENARIO -eq 'current') { 'cuaderno-aules:0.2.5' } else { 'cuaderno-aules:0.2.4' } }
+              'inspect --format {{.State.Running}} container-old' { if ($env:SCENARIO -eq 'stopped') { 'false' } else { 'true' } }
+              'exec container-old python /opt/cuaderno/outputs/aules-evaluacion/web_maintenance.py backup' { $global:backedUp=$true; if ($env:SCENARIO -eq 'blocked') { $global:LASTEXITCODE=1 } }
+              'compose up -d' {
+                if ($env:SCENARIO -eq 'blocked') { throw 'No debe reiniciar si hay tareas activas' }
+                if ($env:SCENARIO -in @('upgrade','stopped') -and !$global:backedUp) { throw 'Falta copia antes de actualizar' }
+                if ((Get-Content .env) -notcontains 'SETTING_PRESERVED=ok') { throw 'Se han perdido ajustes' }
+              }
+            }
+          }
+          if ($env:SCENARIO -eq 'blocked') {
+            $blocked=$false
+            try { & ./iniciar.ps1 } catch { $blocked=$true }
+            if (!$blocked -or !$global:backedUp) { throw 'No se bloqueó la actualización durante mantenimiento' }
+            if ((Get-Content .env) -match '^CUADERNO_IMAGE=') { throw 'Se cambió la versión antes de crear la copia' }
+            $global:LASTEXITCODE=0
+          } else { & ./iniciar.ps1 }
   mac:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - run: sh -n iniciar.sh actualizar.sh iniciar.command actualizar.command
+      - run: python3 tests/test_launchers.py
