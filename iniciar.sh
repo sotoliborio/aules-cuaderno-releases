@@ -25,7 +25,7 @@ if ! docker image inspect "cuaderno-aules:$version" >/dev/null 2>&1; then
  case "$(uname -m)" in arm64|aarch64) arch=arm64;; x86_64|amd64) arch=amd64;; *) echo 'Arquitectura no compatible';exit 1;; esac
  asset="cuaderno-aules-web-$version-$arch.tar.gz"
  base="https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v$version"
- echo "Descargando la versión $version…"
+ echo "Descargando la versión ${version}…"
  curl --fail --location --proto '=https' "$base/$asset" -o "$cache/$asset"
  curl --fail --location --proto '=https' "$base/SHA256SUMS.txt" -o "$cache/SHA256SUMS.txt"
  expected=$(awk -v name="$asset" '$2==name {print $1}' "$cache/SHA256SUMS.txt")

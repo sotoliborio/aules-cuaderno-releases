@@ -30,7 +30,7 @@ if ($LASTEXITCODE -ne 0) {
  $cache = Join-Path ([System.IO.Path]::GetTempPath()) ([guid]::NewGuid().ToString())
  New-Item -ItemType Directory $cache | Out-Null
  try {
-  Write-Host "Descargando la versión $version…"
+  Write-Host "Descargando la versión ${version}…"
   Invoke-WebRequest "$base/$asset" -OutFile (Join-Path $cache $asset) -UseBasicParsing
   Invoke-WebRequest "$base/SHA256SUMS.txt" -OutFile (Join-Path $cache 'SHA256SUMS.txt') -UseBasicParsing
   $expected = ((Get-Content (Join-Path $cache 'SHA256SUMS.txt') | Where-Object { $_.EndsWith("  $asset") }) -split ' ')[0]

@@ -2,6 +2,8 @@
 
 La versión actual es **0.2.5**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
+**Lanzador Mac corregido:** si aparece «version?: unbound variable», descarga de nuevo el ZIP para Mac y sustituye los archivos del lanzador. Después abre iniciar.command con Docker Desktop abierto. No borres el volumen Docker: tus datos se conservan.
+
 ## Novedades de 0.2.5
 
 - Inicio por doble clic con búsqueda de actualizaciones, copia de seguridad y conservación de datos.
