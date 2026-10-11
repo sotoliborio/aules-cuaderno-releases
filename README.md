@@ -1,26 +1,26 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.4**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.5**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.4
+## Novedades de 0.2.5
 
-- Comparación real de escalas como Hecho/No hecho y decisión ante discrepancias.
-- Reintentos de verificación de citas y explicación de entregas sin propuesta guardada.
-- Recuperación de comentarios de rúbricas locales al importar calificaciones globales.
-- Copiar comentarios por criterio y feedback breve dirigido al alumno.
-- Asignación de unidades de evidencia, avisos dentro de ventanas y descarga CSV desde Ver rúbrica.
-- Lanzadores con apertura del navegador y actualización por doble clic en Mac.
+- Inicio por doble clic con búsqueda de actualizaciones, copia de seguridad y conservación de datos.
+- Bloqueo de la actualización mientras hay tareas IA activas; vuelve a iniciar al terminar.
+- Importación de CE expresados sobre el módulo, convertidos al porcentaje de cada RA desde la vista previa.
+- Lectura de tablas PDF de evaluación, sin confundir las columnas Empresa/Instituto.
+- Conectar Codex durante la importación y volver conservando el archivo y los campos.
+- Volver a extraer con IA y conservar el resultado anterior si falla.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Instalar-Cuaderno-AULES-Mac-0.2.4.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Instalar-Cuaderno-AULES-Windows-0.2.4.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.5/Instalar-Cuaderno-AULES-Mac-0.2.5.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.5/Instalar-Cuaderno-AULES-Windows-0.2.5.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.4)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.5)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
@@ -40,9 +40,9 @@ Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Im�
 
 ## Actualizar, detener y conservar datos
 
-Descarga y descomprime el paquete nuevo **en la misma carpeta**, conserva `.env` si lo tienes y abre `actualizar.command` en Mac o `actualizar.bat` en Windows (Linux: ejecuta `sh actualizar.sh`). El lanzador crea una copia SQLite antes de actualizar y se detiene si hay trabajos IA activos.
+**Desde esta versión basta con abrir iniciar.command (Mac) o iniciar.bat (Windows).** El lanzador consulta la última versión pública y, si hay una actualización, la descarga, comprueba su integridad y crea una copia de seguridad antes de aplicarla. Conserva cursos, calificaciones y sesiones en el volumen local. Si hay tareas IA activas, se detiene y explica que debes volver a iniciar al terminar. Si GitHub no responde, inicia la versión instalada sin actualizar.
 
-Los lanzadores de actualización crean la copia automáticamente y se detienen si hay una corrección activa. No necesitas introducir comandos.
+**Para pasar desde 0.2.4 o anterior:** descarga el ZIP nuevo y descomprímelo en la misma carpeta, sustituyendo los lanzadores y docker-compose.yml; conserva .env si lo tienes. Después abre iniciar.command o iniciar.bat. Esta descarga inicial incorpora la búsqueda automática para las siguientes versiones. También puedes usar actualizar.command o actualizar.bat: realizan el mismo proceso.
 
 Los datos se guardan en el volumen Docker `cuaderno-aules_cuaderno-aules-data`, fuera del paquete. Mantén una copia externa. `docker compose down` conserva datos; **no utilices `docker compose down -v`**, que los elimina. Cierra Docker solo cuando no haya correcciones en curso.
 
