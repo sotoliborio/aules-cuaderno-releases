@@ -1,0 +1,34 @@
+name: Verificar lanzadores
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Analizar y ejecutar flujo Windows con Docker simulado
+        shell: pwsh
+        run: |
+          foreach ($file in @('iniciar.ps1','actualizar.ps1')) {
+            $tokens=$null; $errors=$null
+            [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD $file),[ref]$tokens,[ref]$errors) | Out-Null
+            if ($errors.Count) { throw ($errors | Out-String) }
+          }
+          $env:PATH="$PWD;$env:PATH"
+          '@echo off' + "`r`nexit /b 0" | Set-Content docker.cmd
+          function Start-Process { param($FilePath) if ($FilePath -ne 'http://localhost:3000') { throw 'URL incorrecta' } }
+          & ./iniciar.ps1
+      - name: Comprobar actualización bloqueada antes de reiniciar
+        shell: pwsh
+        run: |
+          $env:PATH="$PWD;$env:PATH"
+          '@echo off' + "`r`nexit /b 1" | Set-Content docker.cmd
+          $blocked=$false
+          try { & ./actualizar.ps1 } catch { $blocked=$true }
+          if (!$blocked) { throw 'No se detuvo la actualización ante mantenimiento fallido' }
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh -n iniciar.sh actualizar.sh iniciar.command actualizar.command

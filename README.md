@@ -1,20 +1,19 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.3**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.4**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.3
+## Novedades de 0.2.4
 
-- Correcciones IA individuales, con comprobación de evidencias y revisión adicional de casos dudosos.
-- Verificación de citas compatible con saltos de línea y espacios extraídos de PDF.
-- Propuestas plegables por alumno, acciones separadas y control para desplegarlas todas.
-- Estado de vinculación de CE en la actividad y en su rúbrica, con acceso directo a revisarlo.
-- Se elimina la publicación directa de calificaciones: el cuaderno compara con AULES sin sobrescribir los resultados locales. Actualizar una actividad o el curso vuelve a comprobarlos.
-- Solo las calificaciones aprobadas y coincidentes con AULES cuentan en el cálculo por RA. Las discrepancias quedan señaladas. Las escalas y pruebas externas requieren todavía un mecanismo compatible de comprobación.
-- Reparado el empaquetado de los módulos de comparación.
+- Comparación real de escalas como Hecho/No hecho y decisión ante discrepancias.
+- Reintentos de verificación de citas y explicación de entregas sin propuesta guardada.
+- Recuperación de comentarios de rúbricas locales al importar calificaciones globales.
+- Copiar comentarios por criterio y feedback breve dirigido al alumno.
+- Asignación de unidades de evidencia, avisos dentro de ventanas y descarga CSV desde Ver rúbrica.
+- Lanzadores con apertura del navegador y actualización por doble clic en Mac.
 
 ## Descargar e iniciar
 
-[Descargar paquete web 0.2.3](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.3/Cuaderno-AULES-web-0.2.3.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.3)
+[Descargar paquete web 0.2.4](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Cuaderno-AULES-web-0.2.4.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.4)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
@@ -34,9 +33,9 @@ Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Im�
 
 ## Actualizar, detener y conservar datos
 
-Descarga y descomprime el paquete nuevo **en la misma carpeta**, conserva `.env` si lo tienes y ejecuta `sh actualizar.sh` (Windows: abre actualizar.bat). El lanzador crea una copia SQLite antes de actualizar y se detiene si hay trabajos IA activos.
+Descarga y descomprime el paquete nuevo **en la misma carpeta**, conserva `.env` si lo tienes y abre `actualizar.command` en Mac o `actualizar.bat` en Windows (Linux: ejecuta `sh actualizar.sh`). El lanzador crea una copia SQLite antes de actualizar y se detiene si hay trabajos IA activos.
 
-Windows, antes de actualizar: `docker compose exec -T cuaderno python /opt/cuaderno/outputs/aules-evaluacion/web_maintenance.py backup`.
+Los lanzadores de actualización crean la copia automáticamente y se detienen si hay una corrección activa. No necesitas introducir comandos.
 
 Los datos se guardan en el volumen Docker `cuaderno-aules_cuaderno-aules-data`, fuera del paquete. Mantén una copia externa. `docker compose down` conserva datos; **no utilices `docker compose down -v`**, que los elimina. Cierra Docker solo cuando no haya correcciones en curso.
 
@@ -55,3 +54,13 @@ Puedes acceder mediante Tailscale Serve privado con HTTPS. El equipo y Docker de
 - Conexión a Codex accesible desde la preparación de rúbricas.
 
 El repositorio contiene lanzadores y documentación pública; el desarrollo se mantiene en el repositorio privado. Las imágenes distribuidas contienen el código de ejecución Python y no datos docentes. SHA256SUMS permite comprobar las descargas; no sustituye una firma independiente.
+
+## Ayuda para la primera instalación
+
+**Mac:** descarga el ZIP del enlace anterior (no el ZIP de código de GitHub), descomprímelo y conserva la carpeta completa. Abre Docker Desktop y espera a que indique que está funcionando. Abre iniciar.command; no abras los archivos TAR.GZ de las imágenes. Si macOS no permite abrir el lanzador descargado, prueba clic derecho → Abrir y revisa Privacidad y seguridad; no desactives la protección del sistema. Al finalizar se abrirá el navegador.
+
+**Windows:** instala Docker Desktop y sigue sus indicaciones para WSL 2/virtualización; puede requerir reinicio. Descomprime el ZIP con Extraer todo; no ejecutes el lanzador dentro del ZIP. Abre Docker Desktop, espera a que esté listo y abre iniciar.bat. El lanzador ejecuta PowerShell con permiso limitado a ese proceso, sin cambiar la configuración permanente. Las políticas de un centro pueden bloquearlo; en ese caso consulta con su responsable. Al finalizar se abrirá el navegador.
+
+**Si no arranca:** conserva el mensaje de la ventana del lanzador y compártelo sin credenciales. Comprueba que Docker está abierto y que ninguna otra aplicación ocupa el puerto 3000. La primera descarga es de unos 320 MB; necesita conexión a Internet. No cierres Docker durante correcciones. No borres el volumen de datos al actualizar.
+
+Verificado: construcción y arranque de las imágenes Linux AMD64/ARM64, integridad de descargas y pruebas automáticas de la aplicación. No se certifica instalación en todos los modelos de Mac/Windows; la instalación completa en Windows real está pendiente.

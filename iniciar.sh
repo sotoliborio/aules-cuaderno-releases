@@ -1,11 +1,12 @@
 #!/bin/sh
 set -eu
 cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+command -v docker >/dev/null 2>&1 || { echo 'No se encuentra Docker Desktop. Instálalo y ábrelo antes de iniciar.'; exit 1; }
 docker info >/dev/null 2>&1 || { echo 'Instala y abre Docker Desktop antes de continuar.'; exit 1; }
-if ! docker image inspect cuaderno-aules:0.2.3 >/dev/null 2>&1; then
+if ! docker image inspect cuaderno-aules:0.2.4 >/dev/null 2>&1; then
  case "$(uname -m)" in arm64|aarch64) arch=arm64;; x86_64|amd64) arch=amd64;; *) echo 'Arquitectura no compatible';exit 1;; esac
- asset="cuaderno-aules-web-0.2.3-$arch.tar.gz"
- base=https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.3
+ asset="cuaderno-aules-web-0.2.4-$arch.tar.gz"
+ base=https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4
  cache=$(mktemp -d)
  trap 'rm -rf "$cache"' EXIT
  curl --fail --location --proto '=https' "$base/$asset" -o "$cache/$asset"
@@ -15,7 +16,7 @@ if ! docker image inspect cuaderno-aules:0.2.3 >/dev/null 2>&1; then
 fi
 docker compose up -d
 for i in $(seq 1 90); do
- if docker compose exec -T cuaderno python /opt/cuaderno/healthcheck.py >/dev/null 2>&1; then echo 'Abre http://localhost:3000';exit 0;fi
+ if docker compose exec -T cuaderno python /opt/cuaderno/healthcheck.py >/dev/null 2>&1; then echo 'Abre http://localhost:3000'; if command -v open >/dev/null 2>&1; then open http://localhost:3000; fi;exit 0;fi
  sleep 2
 done
 echo 'No se ha confirmado el arranque. Revisa docker compose logs.';exit 1

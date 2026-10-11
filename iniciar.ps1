@@ -1,12 +1,13 @@
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
+if (!(Get-Command docker -ErrorAction SilentlyContinue)) { throw 'No se encuentra Docker Desktop. Instálalo, ábrelo y vuelve a iniciar el cuaderno.' }
 docker info *> $null
 if ($LASTEXITCODE -ne 0) { throw 'Instala y abre Docker Desktop antes de continuar.' }
-docker image inspect cuaderno-aules:0.2.3 *> $null
+docker image inspect cuaderno-aules:0.2.4 *> $null
 if ($LASTEXITCODE -ne 0) {
  $arch = if ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq 'Arm64') { 'arm64' } else { 'amd64' }
- $asset = "cuaderno-aules-web-0.2.3-$arch.tar.gz"
- $base = 'https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.3'
+ $asset = "cuaderno-aules-web-0.2.4-$arch.tar.gz"
+ $base = 'https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4'
  $cache = Join-Path ([System.IO.Path]::GetTempPath()) ([guid]::NewGuid().ToString())
  New-Item -ItemType Directory $cache | Out-Null
  try {
@@ -22,7 +23,7 @@ docker compose up -d
 if ($LASTEXITCODE -ne 0) { throw 'No se ha podido iniciar el cuaderno.' }
 for ($i=0; $i -lt 90; $i++) {
  docker compose exec -T cuaderno python /opt/cuaderno/healthcheck.py *> $null
- if ($LASTEXITCODE -eq 0) { Write-Host 'Abre http://localhost:3000'; exit 0 }
+ if ($LASTEXITCODE -eq 0) { Write-Host 'Cuaderno preparado. Abriendo el navegador…'; Start-Process 'http://localhost:3000'; exit 0 }
  Start-Sleep 2
 }
 throw 'No se ha confirmado el arranque. Revisa docker compose logs.'
