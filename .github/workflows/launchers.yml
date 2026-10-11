@@ -27,6 +27,7 @@ jobs:
           $blocked=$false
           try { & ./actualizar.ps1 } catch { $blocked=$true }
           if (!$blocked) { throw 'No se detuvo la actualización ante mantenimiento fallido' }
+          $global:LASTEXITCODE=0
   mac:
     runs-on: macos-latest
     steps:
