@@ -13,7 +13,14 @@ La versión actual es **0.2.4**. La aplicación se utiliza en el navegador y se 
 
 ## Descargar e iniciar
 
-[Descargar paquete web 0.2.4](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Cuaderno-AULES-web-0.2.4.zip) · [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.4)
+### Elige tu sistema
+
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Instalar-Cuaderno-AULES-Mac-0.2.4.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.4/Instalar-Cuaderno-AULES-Windows-0.2.4.zip)** — incluye iniciar.bat.
+
+**Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
+
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.4)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
