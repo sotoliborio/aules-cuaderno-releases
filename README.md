@@ -1,28 +1,27 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.5**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.6**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-**Lanzador Mac corregido:** si aparece «version?: unbound variable», descarga de nuevo el ZIP para Mac y sustituye los archivos del lanzador. Después abre iniciar.command con Docker Desktop abierto. No borres el volumen Docker: tus datos se conservan.
+## Novedades de 0.2.6
 
-## Novedades de 0.2.5
-
-- Inicio por doble clic con búsqueda de actualizaciones, copia de seguridad y conservación de datos.
-- Bloqueo de la actualización mientras hay tareas IA activas; vuelve a iniciar al terminar.
-- Importación de CE expresados sobre el módulo, convertidos al porcentaje de cada RA desde la vista previa.
-- Lectura de tablas PDF de evaluación, sin confundir las columnas Empresa/Instituto.
-- Conectar Codex durante la importación y volver conservando el archivo y los campos.
-- Volver a extraer con IA y conservar el resultado anterior si falla.
+- Ajustes organizados en General, AULES, IA, Accesibilidad y Datos y privacidad.
+- Preparación, revisión y activación de rúbricas más claras; propuestas e historial separados.
+- Correcciones del vínculo de CE y de las unidades/fases de Proyecto Intermodular.
+- Lectura completa de proyectos PDF sin límite fijo de páginas y progreso de entregas bloqueadas.
+- Guardado de los pesos de todas las unidades modificadas con comprobación posterior.
+- Mejoras móviles en el selector de curso y el acceso a entregas; resaltado de destino opcional.
+- Lanzadores con actualización automática, copia previa y conservación de datos.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.5/Instalar-Cuaderno-AULES-Mac-0.2.5.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.5/Instalar-Cuaderno-AULES-Windows-0.2.5.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.6/Instalar-Cuaderno-AULES-Mac-0.2.6.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.6/Instalar-Cuaderno-AULES-Windows-0.2.6.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.5)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.6)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
@@ -36,7 +35,7 @@ Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Im�
 - La instalación comienza vacía. No incluye alumnado, cursos, entregas, programaciones, contraseñas, tokens ni sesiones del autor.
 - Elige sabores, conecta tu propia cuenta de AULES e importa los cursos con su programación. La app solicita el token directamente a AULES mediante HTTPS.
 - Recordar sesión guarda tokens en el volumen local; no guarda tu contraseña en un archivo. Las credenciales y tokens de AULES no se envían a la IA.
-- Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex** desde Ajustes → Sistema. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
+- Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex** desde Ajustes → IA. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
 - El acceso de Codex por código requiere habilitar «Inicio de sesión con código de dispositivo» en [Seguridad de ChatGPT](https://chatgpt.com/#settings/Security). Después pulsa Conectar Codex para obtener un código nuevo y autorízalo en el enlace mostrado. No compartas códigos ni sesiones.
 - Las funciones IA envían a OpenAI las evidencias necesarias; las propuestas son borradores que debes revisar. Introduce las calificaciones en AULES y utiliza la comparación del cuaderno para comprobar que coinciden. La app no publica calificaciones.
 
@@ -44,7 +43,7 @@ Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Im�
 
 **Desde esta versión basta con abrir iniciar.command (Mac) o iniciar.bat (Windows).** El lanzador consulta la última versión pública y, si hay una actualización, la descarga, comprueba su integridad y crea una copia de seguridad antes de aplicarla. Conserva cursos, calificaciones y sesiones en el volumen local. Si hay tareas IA activas, se detiene y explica que debes volver a iniciar al terminar. Si GitHub no responde, inicia la versión instalada sin actualizar.
 
-**Para pasar desde 0.2.4 o anterior:** descarga el ZIP nuevo y descomprímelo en la misma carpeta, sustituyendo los lanzadores y docker-compose.yml; conserva .env si lo tienes. Después abre iniciar.command o iniciar.bat. Esta descarga inicial incorpora la búsqueda automática para las siguientes versiones. También puedes usar actualizar.command o actualizar.bat: realizan el mismo proceso.
+**Para pasar desde 0.2.5 o anterior:** descarga el ZIP nuevo y descomprímelo en la misma carpeta, sustituyendo los lanzadores y docker-compose.yml; conserva .env si lo tienes. Después abre iniciar.command o iniciar.bat. Esta descarga inicial incorpora la búsqueda automática para las siguientes versiones. También puedes usar actualizar.command o actualizar.bat: realizan el mismo proceso.
 
 Los datos se guardan en el volumen Docker `cuaderno-aules_cuaderno-aules-data`, fuera del paquete. Mantén una copia externa. `docker compose down` conserva datos; **no utilices `docker compose down -v`**, que los elimina. Cierra Docker solo cuando no haya correcciones en curso.
 
@@ -53,14 +52,6 @@ El registro de las antiguas versiones de escritorio no se traslada automáticame
 ## Móvil
 
 Puedes acceder mediante Tailscale Serve privado con HTTPS. El equipo y Docker deben estar encendidos. No expongas el puerto en Internet. Cada instalación está diseñada para un docente; no es un servidor compartido para varias cuentas.
-
-## Cambios de esta versión
-
-- Nueva distribución web local con Docker para ambas arquitecturas; escritorio y Render dejan de formar parte de la instalación.
-- Navegación unificada, sin barra inferior duplicada; fichas y formularios más legibles en móvil.
-- Importación de rúbricas CSV de AULES, HTML o texto con vista previa e historial.
-- Opciones de corrección separadas de calificación; avisos sencillos y detalles técnicos desplegables.
-- Conexión a Codex accesible desde la preparación de rúbricas.
 
 El repositorio contiene lanzadores y documentación pública; el desarrollo se mantiene en el repositorio privado. Las imágenes distribuidas contienen el código de ejecución Python y no datos docentes. SHA256SUMS permite comprobar las descargas; no sustituye una firma independiente.
 
