@@ -22,13 +22,13 @@ jobs:
           }
           'SETTING_PRESERVED=ok' | Set-Content .env
           $global:backedUp=$false
-          function Invoke-RestMethod { if ($env:SCENARIO -eq 'offline') { throw 'Red no disponible' }; return @{tag_name='v0.2.6'} }
+          function Invoke-RestMethod { if ($env:SCENARIO -eq 'offline') { throw 'Red no disponible' }; return @{tag_name='v0.2.7'} }
           function Start-Process { param($FilePath) if ($FilePath -ne 'http://localhost:3000') { throw 'URL incorrecta' } }
           function docker {
             $line=$args -join ' '; $global:LASTEXITCODE=0
             switch ($line) {
               'compose ps -a -q cuaderno' { if ($env:SCENARIO -ne 'new') { 'container-old' } }
-              'inspect --format {{.Config.Image}} container-old' { if ($env:SCENARIO -eq 'current') { 'cuaderno-aules:0.2.6' } else { 'cuaderno-aules:0.2.5' } }
+              'inspect --format {{.Config.Image}} container-old' { if ($env:SCENARIO -eq 'current') { 'cuaderno-aules:0.2.7' } else { 'cuaderno-aules:0.2.5' } }
               'inspect --format {{.State.Running}} container-old' { if ($env:SCENARIO -eq 'stopped') { 'false' } else { 'true' } }
               'exec container-old python /opt/cuaderno/outputs/aules-evaluacion/web_maintenance.py backup' { $global:backedUp=$true; if ($env:SCENARIO -eq 'blocked') { $global:LASTEXITCODE=1 } }
               'compose up -d' {

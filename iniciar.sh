@@ -3,7 +3,7 @@ set -eu
 cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 command -v docker >/dev/null 2>&1 || { echo 'No se encuentra Docker Desktop. Instálalo y ábrelo antes de iniciar.'; exit 1; }
 docker info >/dev/null 2>&1 || { echo 'Abre Docker Desktop antes de continuar.'; exit 1; }
-version=0.2.6
+version=0.2.7
 container=$(docker compose ps -a -q cuaderno)
 installed=''
 if [ -n "$container" ]; then
