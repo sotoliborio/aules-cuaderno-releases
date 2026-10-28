@@ -1,27 +1,26 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.7**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.8**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.7
+## Novedades de 0.2.8
 
-- Programación de aula con actividades de AULES y posibilidad de añadir actividades realizadas fuera de la plataforma.
-- Sesiones opcionales con decimales e instrumentos de calificación IC1–IC9.
-- Seguimiento R1–R4 por actividad y exportación de su código y descripción en la columna Result.
-- Nombre del docente en la portada, textos por defecto y separación de apartados en Word corregidos.
-- Validación más clara: las actividades excluidas no bloquean y las fechas fuera de la unidad permiten continuar con un aviso.
-- Mejoras en PD/PA, propuestas de rúbrica, comparación de calificaciones y conservación del filtro de unidad.
-- Se mantiene la actualización desde los lanzadores con copia previa y conservación de datos.
+- **Enunciado y alcance docente:** en Criterios puedes escribir un enunciado local o indicar los RA/CE de la actividad. La IA usa esa referencia para proponer vínculos y preparar correcciones aunque AULES no tenga enunciado o no declare los CE. Revisa y confirma las asignaciones; la referencia se conserva al actualizar AULES.
+- **Leer rúbrica de AULES:** consulta la rúbrica existente de una tarea y muestra una vista previa antes de importarla. Si el token no permite leerla, solicita acceso puntual a la página con tu propia cuenta. La contraseña y las cookies de esa lectura no se guardan ni se envían a la IA. Puede ser necesario volver a conectar tras reiniciar.
+- Rúbricas con otro máximo de puntuación se adaptan proporcionalmente a 10 puntos en el cuaderno, conservando la puntuación original como referencia. La importación se confirma manualmente y conserva las versiones locales anteriores cuando sustituye una rúbrica.
+- **Criterios de cuestionarios:** vista específica para elegir unidades y CE, separada de la configuración completa de Evaluación.
+- Unidades UD/UT con el mismo número y título se reconocen sin duplicados ni avisos de discrepancia ajenos a la actividad. Si no se puede confirmar la correspondencia, se mantiene el aviso para revisión docente.
+- Se mantienen las funciones de PD/PA, los instrumentos IC1–IC9, el seguimiento R1–R4 y la actualización desde el lanzador con copia previa y conservación de datos.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.7/Instalar-Cuaderno-AULES-Mac-0.2.7.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.7/Instalar-Cuaderno-AULES-Windows-0.2.7.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.8/Instalar-Cuaderno-AULES-Mac-0.2.8.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.8/Instalar-Cuaderno-AULES-Windows-0.2.8.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.7)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.8)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.

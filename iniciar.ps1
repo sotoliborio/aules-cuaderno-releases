@@ -3,7 +3,7 @@ Set-Location $PSScriptRoot
 if (!(Get-Command docker -ErrorAction SilentlyContinue)) { throw 'No se encuentra Docker Desktop. Instálalo, ábrelo y vuelve a iniciar.' }
 docker info *> $null
 if ($LASTEXITCODE -ne 0) { throw 'Abre Docker Desktop antes de continuar.' }
-$version = '0.2.7'
+$version = '0.2.8'
 $container = docker compose ps -a -q cuaderno
 if ($LASTEXITCODE -ne 0) { throw 'No se ha podido consultar la instalación local.' }
 $installed = ''

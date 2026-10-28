@@ -10,9 +10,9 @@ for scenario in ('new','upgrade','blocked','current','offline','stopped','downlo
 printf '%s\\n' "$*" >> "$TEST_DIR/log"
 case "$*" in
  'compose ps -a -q cuaderno') case "$SCENARIO" in new|download|badchecksum) ;; *) echo container-old;; esac;;
- 'inspect --format {{.Config.Image}} container-old') if [ "$SCENARIO" = current ];then echo cuaderno-aules:0.2.7;else echo cuaderno-aules:0.2.5;fi;;
+ 'inspect --format {{.Config.Image}} container-old') if [ "$SCENARIO" = current ];then echo cuaderno-aules:0.2.8;else echo cuaderno-aules:0.2.5;fi;;
  'inspect --format {{.State.Running}} container-old') if [ "$SCENARIO" = stopped ];then echo false;else echo true;fi;;
- 'image inspect cuaderno-aules:0.2.7') case "$SCENARIO" in download|badchecksum) exit 1;; esac;;
+ 'image inspect cuaderno-aules:0.2.8') case "$SCENARIO" in download|badchecksum) exit 1;; esac;;
  *web_maintenance.py*) [ "$SCENARIO" != blocked ] || exit 1;;
 esac
 exit 0
@@ -28,8 +28,8 @@ while [ "$#" -gt 0 ];do
  shift
 done
 case "$url" in
- */latest) printf '{"tag_name":"v0.2.7"}' > "$out";;
- */SHA256SUMS.txt) asset="cuaderno-aules-web-0.2.7-$(uname -m).tar.gz";case "$(uname -m)" in x86_64) asset=cuaderno-aules-web-0.2.7-amd64.tar.gz;; esac
+ */latest) printf '{"tag_name":"v0.2.8"}' > "$out";;
+ */SHA256SUMS.txt) asset="cuaderno-aules-web-0.2.8-$(uname -m).tar.gz";case "$(uname -m)" in x86_64) asset=cuaderno-aules-web-0.2.8-amd64.tar.gz;; esac
  digest=$FIXTURE_SHA;[ "$SCENARIO" != badchecksum ] || digest=0000000000000000000000000000000000000000000000000000000000000000
  printf '%s  %s\\n' "$digest" "$asset" > "$out";;
  *.tar.gz) cp "$TEST_DIR/fixture" "$out";;
@@ -49,6 +49,6 @@ esac
    if scenario in ('upgrade','stopped'):assert log.index('web_maintenance.py backup')<log.index('compose up -d')
    if scenario in ('current','offline'):assert 'compose up' not in log and 'web_maintenance' not in log
    if scenario=='offline':assert 'cuaderno-aules:0.2.5' in settings
-  if scenario=='download':assert 'load -i' in log and 'Descargando la versión 0.2.7' in r.stdout
+  if scenario=='download':assert 'load -i' in log and 'Descargando la versión 0.2.8' in r.stdout
   if scenario=='badchecksum':assert 'load -i' not in log
   print('OK',scenario)
