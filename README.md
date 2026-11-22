@@ -1,42 +1,43 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.8**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.9**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.8
+## Novedades de 0.2.9
 
-- **Enunciado y alcance docente:** en Criterios puedes escribir un enunciado local o indicar los RA/CE de la actividad. La IA usa esa referencia para proponer vínculos y preparar correcciones aunque AULES no tenga enunciado o no declare los CE. Revisa y confirma las asignaciones; la referencia se conserva al actualizar AULES.
-- **Leer rúbrica de AULES:** consulta la rúbrica existente de una tarea y muestra una vista previa antes de importarla. Si el token no permite leerla, solicita acceso puntual a la página con tu propia cuenta. La contraseña y las cookies de esa lectura no se guardan ni se envían a la IA. Puede ser necesario volver a conectar tras reiniciar.
-- Rúbricas con otro máximo de puntuación se adaptan proporcionalmente a 10 puntos en el cuaderno, conservando la puntuación original como referencia. La importación se confirma manualmente y conserva las versiones locales anteriores cuando sustituye una rúbrica.
-- **Criterios de cuestionarios:** vista específica para elegir unidades y CE, separada de la configuración completa de Evaluación.
-- Unidades UD/UT con el mismo número y título se reconocen sin duplicados ni avisos de discrepancia ajenos a la actividad. Si no se puede confirmar la correspondencia, se mantiene el aviso para revisión docente.
-- Se mantienen las funciones de PD/PA, los instrumentos IC1–IC9, el seguimiento R1–R4 y la actualización desde el lanzador con copia previa y conservación de datos.
+- **Claude además de Codex:** puedes conectar tu cuenta de Codex (ChatGPT), la de Claude o ambas desde Ajustes → Inteligencia artificial, y elegir en cada actividad con cuál preparar la rúbrica y corregir. Cada corrección usa la cuota de tu propia cuenta.
+- **Comentarios con tu estilo:** la IA escribe un comentario general y uno por cada ítem de la rúbrica siguiendo una guía de estilo que puedes editar en Preferencias de corrección. Escribe {nombre} donde quieras el nombre del alumno: la IA no lo recibe y el cuaderno lo añade al guardar.
+- **Parcial publicable alumno por alumno:** lo que todavía no está calificado queda fuera de la media y se explica en el desglose, sin bloquear al resto del grupo. Solo bloquean las correcciones sin aprobar y las notas que no coinciden con AULES, y únicamente para el alumno afectado.
+- **Boletín de AULES más seguro:** al actualizar el curso nunca se publica nada automáticamente; el cuaderno solo avisa si el parcial publicado ha quedado desfasado. Cambiar la fórmula del total del curso requiere una confirmación expresa. Las escrituras en AULES usan una sesión temporal; la sesión recordada solo sirve para leer.
+- **Corte por unidades corregido:** el cálculo «hasta la UD N» incluye solo las unidades numeradas hasta esa; las secciones sin número no entran por orden alfabético.
+- **Avisos más claros:** los que bloquean la publicación se distinguen de los informativos, y en el móvil las calificaciones por RA se muestran en tarjetas.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.8/Instalar-Cuaderno-AULES-Mac-0.2.8.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.8/Instalar-Cuaderno-AULES-Windows-0.2.8.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.9/Instalar-Cuaderno-AULES-Mac-0.2.9.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.9/Instalar-Cuaderno-AULES-Windows-0.2.9.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.8)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.9)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
 3. Mac: abre `iniciar.command`. Windows: abre `iniciar.bat` (PowerShell debe permitir el script local conforme a la política de tu equipo). Linux: ejecuta `sh iniciar.sh`.
 4. El primer arranque descarga y comprueba la imagen para tu arquitectura. Puede tardar varios minutos. Abre **http://localhost:3000** cuando se confirme el arranque.
 
-Se incluyen Python, Node y Codex CLI; no necesitas instalarlos por separado. Imágenes Linux para AMD64 (Intel/AMD) y ARM64 (Apple Silicon/Windows ARM). La compilación y el arranque se verifican en Linux para ambas arquitecturas; el lanzador de Windows requiere validación en un equipo Windows real.
+Se incluyen Python, Node, Codex CLI y Claude CLI; no necesitas instalarlos por separado. Imágenes Linux para AMD64 (Intel/AMD) y ARM64 (Apple Silicon/Windows ARM). La compilación y el arranque se verifican en Linux para ambas arquitecturas; el lanzador de Windows requiere validación en un equipo Windows real.
 
 ## Tus cuentas y tus datos
 
 - La instalación comienza vacía. No incluye alumnado, cursos, entregas, programaciones, contraseñas, tokens ni sesiones del autor.
 - Elige sabores, conecta tu propia cuenta de AULES e importa los cursos con su programación. La app solicita el token directamente a AULES mediante HTTPS.
 - Recordar sesión guarda tokens en el volumen local; no guarda tu contraseña en un archivo. Las credenciales y tokens de AULES no se envían a la IA.
-- Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex** desde Ajustes → IA. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
+- Para preparar rúbricas o corregir con IA, conecta **tu propia cuenta de Codex o de Claude** desde Ajustes → Inteligencia artificial. Estar conectado en otro chat no conecta esta instalación. Se aplica la cuota de tu cuenta.
 - El acceso de Codex por código requiere habilitar «Inicio de sesión con código de dispositivo» en [Seguridad de ChatGPT](https://chatgpt.com/#settings/Security). Después pulsa Conectar Codex para obtener un código nuevo y autorízalo en el enlace mostrado. No compartas códigos ni sesiones.
-- Las funciones IA envían a OpenAI las evidencias necesarias; las propuestas son borradores que debes revisar. Introduce las calificaciones en AULES y utiliza la comparación del cuaderno para comprobar que coinciden. La app no publica calificaciones.
+- Para conectar Claude, pulsa Conectar Claude, abre el enlace, autoriza con tu cuenta de Claude y pega en el cuaderno el código que te muestre.
+- Las funciones IA envían al proveedor elegido (OpenAI o Anthropic) las evidencias necesarias, nunca nombres ni credenciales; las propuestas son borradores que debes revisar. La app no publica correcciones de tareas: introduce las calificaciones en AULES y usa la comparación del cuaderno. Solo el parcial por RA puede publicarse en el libro de calificaciones, y siempre a petición tuya.
 
 ## Actualizar, detener y conservar datos
 
