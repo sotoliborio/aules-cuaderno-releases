@@ -1,26 +1,26 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.9**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.10**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.9
+## Novedades de 0.2.10
 
-- **Claude además de Codex:** puedes conectar tu cuenta de Codex (ChatGPT), la de Claude o ambas desde Ajustes → Inteligencia artificial, y elegir en cada actividad con cuál preparar la rúbrica y corregir. Cada corrección usa la cuota de tu propia cuenta.
-- **Comentarios con tu estilo:** la IA escribe un comentario general y uno por cada ítem de la rúbrica siguiendo una guía de estilo que puedes editar en Preferencias de corrección. Escribe {nombre} donde quieras el nombre del alumno: la IA no lo recibe y el cuaderno lo añade al guardar.
-- **Parcial publicable alumno por alumno:** lo que todavía no está calificado queda fuera de la media y se explica en el desglose, sin bloquear al resto del grupo. Solo bloquean las correcciones sin aprobar y las notas que no coinciden con AULES, y únicamente para el alumno afectado.
-- **Boletín de AULES más seguro:** al actualizar el curso nunca se publica nada automáticamente; el cuaderno solo avisa si el parcial publicado ha quedado desfasado. Cambiar la fórmula del total del curso requiere una confirmación expresa. Las escrituras en AULES usan una sesión temporal; la sesión recordada solo sirve para leer.
-- **Corte por unidades corregido:** el cálculo «hasta la UD N» incluye solo las unidades numeradas hasta esa; las secciones sin número no entran por orden alfabético.
-- **Avisos más claros:** los que bloquean la publicación se distinguen de los informativos, y en el móvil las calificaciones por RA se muestran en tarjetas.
+- **Entregas en Word:** la corrección con IA lee también los DOCX, con sus estilos, títulos, tablas, encabezados y pies, además de una vista visual. Si una entrega trae ODT y DOCX, se leen los dos.
+- **Archivos de referencia:** en «Enunciado e indicaciones del profesor» puedes subir el solucionario, los archivos de partida o ejemplos (PDF, ODT, OTT, DOCX, imágenes, texto o ZIP). La IA los recibe como referencia del profesor. Los ZIP adjuntos al enunciado en AULES también se abren.
+- **Archivos dañados:** si un adjunto no se puede leer, se corrige con el resto de la evidencia legible y se indica el motivo concreto.
+- **Proveedor de IA:** las confirmaciones «Volver a corregir todas», «Rediseñar rúbrica» y «Mejorar redacción» usan siempre el proveedor que has elegido, y el progreso muestra si corrige Codex o Claude.
+- **Parcial por unidades:** en un parcial, un CE repartido entre unidades pesa según las unidades que ya tienen nota.
+- **Reintentos individuales:** reutilizan la rúbrica local guardada.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.9/Instalar-Cuaderno-AULES-Mac-0.2.9.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.9/Instalar-Cuaderno-AULES-Windows-0.2.9.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.10/Instalar-Cuaderno-AULES-Mac-0.2.10.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.10/Instalar-Cuaderno-AULES-Windows-0.2.10.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.9)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.10)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.
