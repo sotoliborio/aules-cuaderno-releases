@@ -1,15 +1,13 @@
 # Cuaderno AULES
 
-La versión actual es **0.3.0**. Cuaderno AULES es una aplicación de escritorio para Mac y Windows. Se instala como cualquier otro programa, se abre desde su icono y se actualiza con un botón. Ya no necesita Docker ni el terminal.
+La versión actual es **0.3.0**. Cuaderno AULES es una aplicación de escritorio para Mac y Windows. Se instala como cualquier otro programa, se abre desde su icono y se actualiza con un botón.
 
 ## Descargar
 
-- **[DESCARGAR PARA MAC (Apple Silicon)](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.0/Cuaderno-AULES-0.3.0-Mac.dmg)**: Mac con chip M1 o posterior.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.0/Cuaderno-AULES-0.3.0-Mac.dmg)**: Mac con chip de Apple (M1 o posterior).
 - **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.0/Cuaderno-AULES-0.3.0-Windows.exe)**: Windows 10 y 11 de 64 bits.
 
 [Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.3.0)
-
-Los Mac con procesador Intel todavía no tienen instalador.
 
 ## Instalar
 
@@ -33,10 +31,6 @@ Los Mac con procesador Intel todavía no tienen instalador.
 ## Actualizar
 
 En **Ajustes → General**, pulsa **Buscar actualizaciones** y después **Instalar y reiniciar**. Antes de instalar se comprueba que no haya correcciones en curso y se guarda una copia de tu cuaderno. La actualización está firmada y se comprueba antes de instalarla; tus cursos y notas no se tocan.
-
-## Si usabas la versión con Docker
-
-En **Ajustes → Datos y privacidad**, pulsa **Traer mis datos de Docker** con Docker Desktop abierto y reinicia la app cuando te lo pida. Se copian cursos, alumnado, notas, entregas y correcciones, y se comprueba que la copia coincide. Docker no se modifica. Las sesiones de AULES y de la IA no se copian: conéctalas de nuevo. Después puedes cerrar Docker Desktop; si quieres borrar su volumen, hazlo solo cuando hayas comprobado tus cursos en la app.
 
 ## Tus datos
 
