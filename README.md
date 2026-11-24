@@ -1,28 +1,28 @@
 # Cuaderno AULES · Web local
 
-La versión actual es **0.2.12**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
+La versión actual es **0.2.13**. La aplicación se utiliza en el navegador y se ejecuta en tu propio equipo mediante Docker. Sustituye a los antiguos instaladores de escritorio y no necesita el servidor Render.
 
-## Novedades de 0.2.12
+## Novedades de 0.2.13
 
-- **Unidades de AULES y de la PD:** en Unidades y cálculo puedes indicar a qué unidad de la programación corresponde cada sección de AULES cuando no coinciden en número o en nombre. También puedes elegir el orden de las unidades y decidir si las calificaciones vacías se excluyen o cuentan como 0.
-- **Mismo nombre y orden en toda la app:** las unidades se muestran como "Unidad N - título" y, por defecto, en el orden de AULES en filtros, cortes de evaluación y ventanas.
-- **Primera carga más completa:** al importar un curso, las notas de AULES quedan verificadas y cada actividad recibe como propuesta los CE que la PD asigna a su unidad. Los CE elegibles se limitan a los de la unidad.
-- **Revisar y editar la programación:** puedes corregir pesos de RA y CE y los CE de cada unidad desde el cuaderno, con historial y opción de deshacer.
-- **Cambios sin guardar:** las ventanas de configuración avisan de forma visible y piden confirmación antes de cerrar sin guardar.
-- **Actividades de ampliación:** la bonificación solo se pide cuando marcas la actividad como de ampliación.
-- **Peso de cada actividad explicado:** la ventana de Evaluación indica con qué actividades se compara el peso, según la unidad tenga o no porcentajes por instrumento.
-- Incluye las mejoras de la 0.2.11: lanzador de Windows corregido y comentarios de la IA que solo empiezan con una valoración positiva cuando el trabajo está bien resuelto.
+- **Unidades que cuentan:** en Calificaciones por RA eliges con casillas qué unidades entran en la nota, con atajos para "Hasta aquí" y "Todas". El orden por defecto de las unidades sigue la numeración de la PD, aunque en AULES estén colocadas de otra forma.
+- **Convocatoria solo cuando hace falta:** el selector de convocatoria solo aparece si hay actividades de recuperación.
+- **Alumnado sin entrega:** en Correcciones hay un filtro "Sin entrega" para ver y calificar a quien no ha entregado.
+- **Corregir con IA y luego importar de AULES:** si la nota de AULES coincide con la local, ya no se marca como conflicto, se conserva la rúbrica y el borrador queda aprobado.
+- **Sin IA conectada:** las acciones de IA aparecen desactivadas y explican el motivo.
+- **Cuestionarios cerrados:** un cuestionario con todas las calificaciones comprobadas y la fecha de cierre pasada se ve igual que una actividad con todas las entregas corregidas.
+- **Orden y filtros de actividades:** por defecto sale primero la más reciente (fecha de apertura o, si no tiene, de entrega). Puedes ordenar por unidad, por próximas entregas, por orden de AULES, por nombre o a mano arrastrando, y filtrar por tipo y estado.
+- Incluye todo lo de la 0.2.12. Corrección: en sus notas se decía que las unidades seguían por defecto el orden de AULES; desde esta versión siguen la numeración de la PD.
 
 ## Descargar e iniciar
 
 ### Elige tu sistema
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.12/Instalar-Cuaderno-AULES-Mac-0.2.12.zip)** — Intel y Apple Silicon; incluye iniciar.command.
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.12/Instalar-Cuaderno-AULES-Windows-0.2.12.zip)** — incluye iniciar.bat.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.13/Instalar-Cuaderno-AULES-Mac-0.2.13.zip)** — Intel y Apple Silicon; incluye iniciar.command.
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.2.13/Instalar-Cuaderno-AULES-Windows-0.2.13.zip)** — incluye iniciar.bat.
 
 **Descarga un ZIP de instalación. No descargues ni descomprimas los TAR.GZ ARM64/AMD64:** son archivos técnicos que el lanzador obtiene automáticamente. Ambos Mac usan el mismo ZIP.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.12)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.2.13)
 
 1. Instala [Docker Desktop](https://www.docker.com/products/docker-desktop/) y ábrelo. Revisa sus condiciones de uso para tu organización. Linux puede utilizar Docker Engine y Compose.
 2. Descomprime el paquete web en una carpeta estable.

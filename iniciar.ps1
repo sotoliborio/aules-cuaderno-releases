@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 Set-Location $PSScriptRoot
-$version = '0.2.12'
+$version = '0.2.13'
 
 # Docker escribe avisos en stderr; en Windows PowerShell 5.1 eso no debe detener el lanzador.
 # Solo cuenta el código de salida del comando.
