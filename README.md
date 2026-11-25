@@ -14,7 +14,13 @@ La versión actual es **0.3.2**. Cuaderno AULES es una aplicación de escritorio
 **Mac**
 
 1. Abre el archivo `.dmg` y arrastra **Cuaderno AULES** a la carpeta Aplicaciones.
-2. La primera vez, macOS puede avisar de que no puede comprobar el desarrollador. Abre Ajustes del Sistema → Privacidad y seguridad y pulsa **Abrir igualmente**. Solo hay que hacerlo una vez.
+2. Antes de abrirla por primera vez, abre la app Terminal, pega esta línea y pulsa Intro:
+
+   ```
+   xattr -dr com.apple.quarantine "/Applications/Cuaderno AULES.app"
+   ```
+
+   La app no está firmada con una cuenta de desarrollador de Apple. Sin este paso, macOS puede bloquearla o decir que está dañada, y en las versiones recientes no siempre aparece el botón **Abrir igualmente** en Ajustes del Sistema → Privacidad y seguridad. El comando solo quita la marca que pone el navegador a los archivos descargados. Hazlo únicamente con el `.dmg` descargado de esta página. Solo hace falta una vez: las actualizaciones desde la app no lo necesitan.
 
 **Windows**
 
