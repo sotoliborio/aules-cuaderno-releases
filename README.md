@@ -1,13 +1,13 @@
 # Cuaderno AULES
 
-La versión actual es **0.3.5**. Cuaderno AULES es una aplicación de escritorio para Mac y Windows. Se instala como cualquier otro programa, se abre desde su icono y se actualiza con un botón.
+La versión actual es **0.3.6**. Cuaderno AULES es una aplicación de escritorio para Mac y Windows. Se instala como cualquier otro programa, se abre desde su icono y se actualiza con un botón.
 
 ## Descargar
 
-- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.5/Cuaderno-AULES-0.3.5-Mac.dmg)**: Mac con chip de Apple (M1 o posterior).
-- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.5/Cuaderno-AULES-0.3.5-Windows.exe)**: Windows 10 y 11 de 64 bits.
+- **[DESCARGAR PARA MAC](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.6/Cuaderno-AULES-0.3.6-Mac.dmg)**: Mac con chip de Apple (M1 o posterior).
+- **[DESCARGAR PARA WINDOWS](https://github.com/sotoliborio/aules-cuaderno-releases/releases/download/v0.3.6/Cuaderno-AULES-0.3.6-Windows.exe)**: Windows 10 y 11 de 64 bits.
 
-[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.3.5)
+[Versión y cambios](https://github.com/sotoliborio/aules-cuaderno-releases/releases/tag/v0.3.6)
 
 ## Instalar
 
